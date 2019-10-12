@@ -1,0 +1,6 @@
+\\pedata1\users$\ocharvat\My Documents\Visual Studio 2015\Projects\Advent2018_4a\Advent2018_4a\bin\Debug\Advent2018_4a.exe.config
+\\pedata1\users$\ocharvat\My Documents\Visual Studio 2015\Projects\Advent2018_4a\Advent2018_4a\bin\Debug\Advent2018_4a.exe
+\\pedata1\users$\ocharvat\My Documents\Visual Studio 2015\Projects\Advent2018_4a\Advent2018_4a\bin\Debug\Advent2018_4a.pdb
+\\pedata1\users$\ocharvat\My Documents\Visual Studio 2015\Projects\Advent2018_4a\Advent2018_4a\obj\Debug\Advent2018_4a.exe
+\\pedata1\users$\ocharvat\My Documents\Visual Studio 2015\Projects\Advent2018_4a\Advent2018_4a\obj\Debug\Advent2018_4a.pdb
+\\pedata1\users$\ocharvat\My Documents\Visual Studio 2015\Projects\Advent2018_4a\Advent2018_4a\obj\Debug\Advent2018_4a.csprojResolveAssemblyReference.cache
