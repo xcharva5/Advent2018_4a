@@ -15,7 +15,7 @@ namespace Advent2018_4a
             GuardController gc = new GuardController();
             gc.AnalyzeRecords(records);
             gc.MostAsleepGuard();
-            gc.MostFavoriteMinute();
+            gc.MostFavoriteMinute2();
 
             Console.WriteLine("Completed. Press a key...");
             Console.ReadKey();
