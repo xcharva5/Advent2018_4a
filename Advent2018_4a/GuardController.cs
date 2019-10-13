@@ -11,13 +11,12 @@ namespace Advent2018_4a
     {
         private List<Guard> guards = new List<Guard>();
 
-        public void MostAsleepGuard(List<Record> records)
+        public void AnalyzeRecords(List<Record> records)
         {
             Regex startsShift = new Regex(@".*#(\d{3,4})\s.*");
             Regex wakesUp = new Regex(@".*(wakes up)");
             Regex fallsAsleep = new Regex(@".*(falls asleep)");
 
-            //Guard pickedGuard = null;
             int guardId = -1;
             int fellAsleep = -1;
             int wokeUp = -1;
@@ -30,36 +29,77 @@ namespace Advent2018_4a
 
                     if (!guards.Any(g => g.Id == guardId))
                     {
-                        guards.Add(new Guard(guardId, 0, -1));
-                        Console.WriteLine("Guard #{0} added.", guardId);
+                        guards.Add(new Guard(guardId));
                     }
-                    else
-                    {
-                        // guard already exist
-                    }
-                } else if (fallsAsleep.IsMatch(rec.Message))
-                {
-                    // the guard falls asleep 
-                    fellAsleep = rec.Timestamp.Minute;
-                    Console.WriteLine("sleep: " + wokeUp);
                 }
-                else if(wakesUp.IsMatch(rec.Message))
+                else if (fallsAsleep.IsMatch(rec.Message))
                 {
-                    // the guard wakes up  
+                    fellAsleep = rec.Timestamp.Minute;
+                }
+                else if (wakesUp.IsMatch(rec.Message))
+                {
                     wokeUp = rec.Timestamp.Minute;
-                    Console.WriteLine("weak up: " + wokeUp);
+
+                    int IdToChange = guards.FindIndex(g => g.Id == guardId);
+                    if (IdToChange >= 0)
+                    {
+                        guards[IdToChange].MinutesAsleep += (wokeUp - fellAsleep);
+                    }
+
+                    for (int min = fellAsleep; min < wokeUp; min++)
+                    {
+                        guards[IdToChange].FavoriteMinute[min]++;
+                    }
                 }
                 else
                 {
                     Console.WriteLine("Unrecognized action");
                 }
             }
+        }
+        public void MostAsleepGuard()
+        {
+            guards = guards.OrderByDescending(g => g.MinutesAsleep).ToList();
+
+            Console.WriteLine(String.Format("============================="));
+            Console.WriteLine(String.Format("|      TOP DREAMERS         |"));
+            Console.WriteLine(String.Format("============================="));
+            Console.WriteLine(String.Format("         | Minutes | Favorite"));
+            Console.WriteLine(String.Format("Guard ID | Slept   | Minute  "));
+            Console.WriteLine(String.Format("============================="));
 
             foreach (Guard g in guards)
-            {
-                Console.WriteLine("{0} -- {1} // {2}", g.Id, g.MinutesAsleep, g.FavoriteMinute);
-
+            {                
+                Console.WriteLine(String.Format("#{0,-8}|{1,9}|{2,9}", g.Id, g.MinutesAsleep, g.GetMostFavoriteMinute()));
             }
+
+            Console.WriteLine(String.Format("============================="));
+            Console.ReadKey();
+        }
+
+        public void MostFavoriteMinute()
+        {
+            int topMinuteOverall = -1;
+            int topMinuteValue = -1;
+            int guardId = -1;
+
+            foreach(Guard g in guards)
+            {
+                int topMinute = g.GetMostFavoriteMinute();
+
+                if (g.GetMostFavoriteMinuteValue() > topMinuteValue)
+                {
+                    topMinuteOverall = topMinute;
+                    topMinuteValue = g.GetMostFavoriteMinuteValue();
+                    guardId = g.Id;
+                }
+            }
+
+            Console.WriteLine(String.Format("============================="));
+            Console.WriteLine(String.Format("|   MOST FAVORITE MINUTE    |"));
+            Console.WriteLine(String.Format("============================="));
+            Console.WriteLine("Guard #{0}", guardId);
+            Console.WriteLine("Slept {0} times at minute {1}.", topMinuteValue, topMinuteOverall);
 
         }
     }

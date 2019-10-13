@@ -11,13 +11,11 @@ namespace Advent2018_4a
         static void Main(string[] args)
         {
             List<Record> records = FileReader.ReadFile("../../input.txt");
-            GuardController gc = new GuardController();
-            gc.MostAsleepGuard(records);
 
-            /*foreach (var record in records)
-            {
-                Console.WriteLine(record.Timestamp + "  " + record.Message);
-            }*/
+            GuardController gc = new GuardController();
+            gc.AnalyzeRecords(records);
+            gc.MostAsleepGuard();
+            gc.MostFavoriteMinute();
 
             Console.WriteLine("Completed. Press a key...");
             Console.ReadKey();

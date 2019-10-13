@@ -10,7 +10,7 @@ namespace Advent2018_4a
     {
         public DateTime Timestamp { get; set; }
         public string Message { get; set; }
-
+        
         public Record(DateTime ts, string msg)
         {
             Timestamp = ts;

@@ -4,3 +4,9 @@
 \\pedata1\users$\ocharvat\My Documents\Visual Studio 2015\Projects\Advent2018_4a\Advent2018_4a\obj\Debug\Advent2018_4a.exe
 \\pedata1\users$\ocharvat\My Documents\Visual Studio 2015\Projects\Advent2018_4a\Advent2018_4a\obj\Debug\Advent2018_4a.pdb
 \\pedata1\users$\ocharvat\My Documents\Visual Studio 2015\Projects\Advent2018_4a\Advent2018_4a\obj\Debug\Advent2018_4a.csprojResolveAssemblyReference.cache
+D:\AndrusPlayground\AdventOfCode\Advent2018_4a\Advent2018_4a\bin\Debug\Advent2018_4a.exe.config
+D:\AndrusPlayground\AdventOfCode\Advent2018_4a\Advent2018_4a\bin\Debug\Advent2018_4a.exe
+D:\AndrusPlayground\AdventOfCode\Advent2018_4a\Advent2018_4a\bin\Debug\Advent2018_4a.pdb
+D:\AndrusPlayground\AdventOfCode\Advent2018_4a\Advent2018_4a\obj\Debug\Advent2018_4a.csprojAssemblyReference.cache
+D:\AndrusPlayground\AdventOfCode\Advent2018_4a\Advent2018_4a\obj\Debug\Advent2018_4a.exe
+D:\AndrusPlayground\AdventOfCode\Advent2018_4a\Advent2018_4a\obj\Debug\Advent2018_4a.pdb
