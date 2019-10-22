@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Advent2018_4a
 {
@@ -25,7 +23,7 @@ namespace Advent2018_4a
             {
                 if (startsShift.IsMatch(rec.Message))
                 {
-                    guardId = Int32.Parse(Regex.Match(rec.Message, startsShift.ToString()).Groups[1].Value);
+                    guardId = int.Parse(Regex.Match(rec.Message, startsShift.ToString()).Groups[1].Value);
 
                     if (!guards.Any(g => g.Id == guardId))
                     {
@@ -57,6 +55,7 @@ namespace Advent2018_4a
                 }
             }
         }
+
         public void MostAsleepGuard()
         {
             guards = guards.OrderByDescending(g => g.MinutesAsleep).ToList();
@@ -70,7 +69,7 @@ namespace Advent2018_4a
 
             foreach (Guard g in guards)
             {                
-                Console.WriteLine(String.Format("#{0,-8}|{1,9}|{2,9}", g.Id, g.MinutesAsleep, g.GetMostFavoriteMinute()));
+                Console.WriteLine(String.Format("#{0,-8}|{1,9}|{2,9}", g.Id, g.MinutesAsleep, g.GetMostFavoriteMinuteIndex()));
             }
 
             Console.WriteLine(String.Format("============================="));
@@ -85,7 +84,7 @@ namespace Advent2018_4a
 
             foreach(Guard g in guards)
             {
-                int topMinute = g.GetMostFavoriteMinute();
+                int topMinute = g.GetMostFavoriteMinuteIndex();
 
                 if (g.GetMostFavoriteMinuteValue() > topMinuteValue)
                 {
@@ -100,7 +99,7 @@ namespace Advent2018_4a
             Console.WriteLine(String.Format("============================="));
             Console.WriteLine("Guard #{0}", guardId);
             Console.WriteLine("Slept {0} times at minute {1}.", topMinuteValue, topMinuteOverall);
-
+            Console.ReadKey();
         }
     }
 }

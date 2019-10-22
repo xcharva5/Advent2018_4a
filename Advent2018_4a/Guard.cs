@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Advent2018_4a
 {
@@ -19,12 +16,7 @@ namespace Advent2018_4a
             FavoriteMinute = new int[60];
         }
 
-        public void AddMinutesSlept(int minutes)
-        {
-            MinutesAsleep += minutes;
-        }
-
-        public int GetMostFavoriteMinute()
+        public int GetMostFavoriteMinuteIndex()
         {
             return Array.IndexOf(FavoriteMinute, FavoriteMinute.Max());
         }
